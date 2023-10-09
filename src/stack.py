@@ -1,7 +1,5 @@
 class Node:
     """Класс для узла стека"""
-
-
     def __init__(self, data, next_node):
         """
         Конструктор класса Node
@@ -14,12 +12,9 @@ class Node:
 
 class Stack:
     """Класс для стека"""
-
-
     def __init__(self):
         """Конструктор класса Stack"""
         self.top = None
-
 
     def push(self, data):
         """
@@ -29,11 +24,12 @@ class Stack:
         """
         self.top = Node(data, self.top)
 
-
     def pop(self):
         """
         Метод для удаления элемента с вершины стека и его возвращения
 
         :return: данные удаленного элемента
         """
-        pass
+        data = self.top.data
+        self.top = self.top.next_node
+        return data
