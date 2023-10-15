@@ -7,7 +7,8 @@ class Node:
 
         :param data: данные, которые будут храниться в узле
         """
-        pass
+        self.data = data
+        self.next_node = next_node
 
 
 class Queue:
@@ -15,7 +16,22 @@ class Queue:
 
     def __init__(self):
         """Конструктор класса Queue"""
-        pass
+        self.head = None
+        self.tail = None
+
+    def __str__(self):
+        """Магический метод для строкового представления объекта"""
+        str_queue_all = ""
+        node = self.head
+
+        while node is not None:
+            str_queue_all += f"{str(node.data)}"
+            node = node.next_node
+
+            if node is not None:
+                str_queue_all += "\n"
+
+        return str_queue_all
 
     def enqueue(self, data):
         """
@@ -23,7 +39,16 @@ class Queue:
 
         :param data: данные, которые будут добавлены в очередь
         """
-        pass
+        node = Node(data, None)
+
+        if self.head is None:
+            self.head = node
+        elif self.tail is None:
+            self.tail = node
+            self.head.next_node = node
+        else:
+            self.tail.next_node = node
+            self.tail = node
 
     def dequeue(self):
         """
@@ -31,8 +56,4 @@ class Queue:
 
         :return: данные удаленного элемента
         """
-        pass
-
-    def __str__(self):
-        """Магический метод для строкового представления объекта"""
         pass
