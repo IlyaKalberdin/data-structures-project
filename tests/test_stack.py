@@ -40,3 +40,11 @@ def test_Stack_pop(test_stack):
 
     assert data == 3
     assert test_stack.top.data == 5
+
+
+def test_Stack_str(test_stack):
+    """Функция для тестирования метода str класса Stack"""
+    test_stack.push(10)
+    test_stack.push(15)
+
+    assert str(test_stack) == "15"
