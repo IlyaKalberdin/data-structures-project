@@ -36,4 +36,11 @@ def test_Queue_enqueue(test_queue):
 
 def test_Queue_dequeue(test_queue):
     """Функция для тестирования метода dequeue класса Queue"""
-    pass
+    test_queue.enqueue("data1")
+    test_queue.enqueue("data2")
+    test_queue.enqueue("data3")
+
+    assert test_queue.dequeue() == "data1"
+    assert test_queue.dequeue() == "data2"
+    assert test_queue.dequeue() == "data3"
+    assert test_queue.dequeue() is None
